@@ -1,5 +1,5 @@
 <?php
-	enum TipoPaciente
+	enum TipoPaciente: String
 	{
 		case DOCENTE = "docente";
     	case ALUNO = "aluno";
