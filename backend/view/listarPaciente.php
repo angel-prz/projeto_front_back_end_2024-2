@@ -1,6 +1,7 @@
 <?php
  require_once('includes/logica/UsuarioDAO.php'); 
 ?>
+<link rel="stylesheet" href="css/style.css">
 <main>
 <h3> Listagem de Usuários </h3>
     <?php
@@ -18,7 +19,7 @@
             ?>
                 <section>
                     <ul id="ul_listaPaciente">
-                    <li>Imagem: <img src="imagens/<?php echo $paciente['imagem'];?>" width='100px' height='100px'/></li>
+                    <li>Imagem: <img class="imagem_perfil" src="imagens/<?php echo $paciente['imagem'];?>" /></li>
                         <li id="il_listaPaciente">Nome: <?php echo $paciente['nome']; ?> </li>
                         <li id="il_listaPaciente">Email <?php echo $paciente['email']; ?> </li>
                         <li id="il_listaPaciente">CPF: <?php echo $paciente['cpf']; ?> </li>

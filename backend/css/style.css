@@ -58,7 +58,13 @@ footer {
     padding: 10px;
 }
 
-
+/* imagem perfil */
+.imagem_perfil
+{
+    border-radius: 50%; /* deixar circular */
+    width: 100px;
+    height: 100px;
+}
 
 /************************************ 
 HEADER 
@@ -78,6 +84,7 @@ HEADER
 /************************************ 
 listaPaciente.php
 ************************************/
+/*lista*/
 #ul_listaPaciente li 
 {
     display: inline;
@@ -87,3 +94,4 @@ listaPaciente.php
 {
     content: "    ·    ";
 }
+
