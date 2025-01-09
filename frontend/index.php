@@ -17,17 +17,16 @@ include('includes/header.php');
     // Inclui o conteúdo do main dinamicamente
     switch ($page) {
         case 'cadastrar':
-            include('pages/cadastrar.php');
+            include('includes/cadastrar.php');
             break;
         case 'listar':
-            include('pages/listar.php');
+            include('includes/listar.php');
             break;
         default:
-            include('pages/listar.php'); // Redireciona para "listar" por padrão
+            include('includes/listar.php'); // Redireciona para "listar" por padrão
             break;
     }
     ?>
-
     <?php
     // Inclui o rodapé
     include('includes/footer.php');

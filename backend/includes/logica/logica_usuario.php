@@ -50,10 +50,20 @@
     if(isset($_POST['entrar'])){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
+        //$cpf = $_POST['cpf'];
+        //$dataNascimento = $_POST['dataNascimento'];
+        //$tipoUsuario = $_POST['tipo_usuario'];
+        //$imagem = $_POST['imagem'];
+        //$dataCadastro = $_POST['dataCadastro'];
 
         $usuario=new Usuario();
-        $usuario->setemail($email);
-        $usuario->setsenha($senha);
+        $usuario->setEmail($email);
+        $usuario->setSenha($senha);
+        //$usuario->setCpf($cpf);
+        //$usuario->setDataNascimento($dataNascimento);
+        //$usuario->setTipoUsuario($tipoUsuario);
+        //$usuario->setImagem($imagem);
+        //$usuario->setDataCadastro($dataCadastro);
 
         $UsuarioDAO= new UsuarioDAO();
 
@@ -75,7 +85,7 @@
     if(isset($_POST['sair'])){
             session_start();
             session_destroy();
-            header('location:../../login.php');
+            header('location:../../index.php');
     }
 
 #EDITAR PESSOA
