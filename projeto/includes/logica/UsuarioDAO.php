@@ -15,37 +15,39 @@
 /*  =======================
  * Usuario Base
  * ======================= */
-    function inserirUsuario($usuario){
-        try {
+    function inserirUsuario($usuario)
+    {
+        try 
+        {
             $query = $this->conexao->prepare("INSERT INTO usuario (cpf, nome, email, senha, dataNascimento, tipo_usuario, imagem) VALUES (:cpf, :nome, :email, :senha, :dataNascimento, :tipo_usuario, :imagem)");
             $resultado = $query->execute(['cpf' => $usuario->getCpf(), 'nome' => $usuario->getNome(), 'email' => $usuario->getEmail(), 'senha' => $usuario->getsenha(), 
-            'dataNascimento' => $usuario->getDataNascimento, 'tipo_usuario' => $usuario->getTipoUsuario, 'imagem' => $pessoa->getimagem()]);
+            'dataNascimento' => $usuario->getDataNascimento(), 'tipo_usuario' => $usuario->getTipoUsuario, 'imagem' => $pessoa->getImagem()]);
 
             return $resultado;
             
         }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
-
     }
 /*  =======================
  * Paciente
  * ======================= */
-    
-
-    function listarPaciente(){
+    function listarPaciente()
+    {
         try {
-          $query = $this->conexao->prepare("SELECT * FROM usuario WHERE tipo_usuario = 'paciente'");      
+            //listar por ordem de criação do usuário 
+          $query = $this->conexao->prepare("SELECT * FROM usuario WHERE tipo_usuario = 'paciente' ORDER BY dataCadastro DESC");      
           $query->execute();
           $pacientes = $query->fetchAll();
           return $pacientes;
         }catch(PDOException $e) {
               echo 'Error: ' . $e->getMessage();
         }  
-  
+    }
 
 
-    function alterarPessoa($pessoa){
+    function alterarPessoa($pessoa)
+    {
         try {
             $query = $this->conexao->prepare("update pessoa set nome= :nome, email = :email, cpf= :cpf, senha= :senha where codpessoa = :codpessoa");
             $resultado = $query->execute(['nome' => $pessoa->getnome(),'email' => $pessoa->getemail(),'cpf' => $pessoa->getcpf(),'senha' => $pessoa->getsenha(),'codpessoa' => $pessoa->getcodpessoa()]);   
@@ -107,7 +109,8 @@
       }  
     }
 
- function pesquisarPessoa($pessoa){
+ function pesquisarPessoa($pessoa)
+ {
         try {
         $query = $this->conexao->prepare("select * from pessoa where upper(nome) like :nome");
         if($query->execute(['nome' => $pessoa->getnome()])){
@@ -127,7 +130,5 @@
          }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
       }  
-    }
-
 }
-   ?>
+?>

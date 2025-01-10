@@ -9,6 +9,8 @@
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
         $senha = $_POST['senha'];
+        $dataNascimento = $_POST['dataNascimento'];
+        $tipoUsuario = $_POST['tipoUsuario'];
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name']; 
@@ -28,18 +30,25 @@
                 echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
 
 
-                $pessoa=new Pessoa();
-                $pessoa->setnome($nome);
-                $pessoa->setemail($email);
-                $pessoa->setcpf($cpf);
-                $pessoa->setsenha($senha);
-                $pessoa->setimagem($nome_arquivo);
+                $usuario=new Pessoa();
+                $usuario->setNome($nome);
+                $usuario->setEmail($email);
+                $usuario->setCpf($cpf);
+                $usuario->setSenha($senha);
+                $usuario->setImagem($nome_arquivo);
+                $usuario->setDataNascimento($dataNascimento);
+                $usuario->setTipoUsuario($tipoUsuario);
 
-                $PessoaDAO= new PessoaDAO($pessoa);
+                //pegar data hora atual
+                $dataCadastro = new DateTime('now');
+                //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
+                $usuario->setDataCadastro($dataCadastro->format('Y-m-d H:i:s'));
+
+                $UsuarioDAO= new UsuarioDAO($usuario);
 
 
 
-                $retorno=$PessoaDAO->inserirPessoa($pessoa);
+                $retorno=$UsuarioDAO->inserirUsuario($usuario);
 
                 
                 header('location:../../index.php');

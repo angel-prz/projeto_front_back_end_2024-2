@@ -19,6 +19,8 @@ body {
         "footer footer"; /* Organizando as áreas do grid */
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 header {

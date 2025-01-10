@@ -15,14 +15,11 @@
             <?php
         }
         foreach($pacientes as $paciente){
-                 
             ?>
                 <section>
                     <ul id="ul_listaPaciente">
                     <li>Imagem: <img class="imagem_perfil" src="imagens/<?php echo $paciente['imagem'];?>" /></li>
                         <li id="il_listaPaciente">Nome: <?php echo $paciente['nome']; ?> </li>
-                        <li id="il_listaPaciente">Email <?php echo $paciente['email']; ?> </li>
-                        <li id="il_listaPaciente">CPF: <?php echo $paciente['cpf']; ?> </li>
                         <li id="il_listaPaciente">Email <?php echo $paciente['email']; ?> </li>
                     </ul>
                     
@@ -36,24 +33,7 @@
         }
     ?>
 </main>
-<script type="text/javascript">
-    function confirma_excluir()
-    {
-        resp=confirm("Confirma Exclusão?")
 
-        if (resp==true)
-        {
-
-            return true;
-        }
-        else
-        {
-            return false;
-
-        }
-
-    }
-</script>
 
 
 </html>

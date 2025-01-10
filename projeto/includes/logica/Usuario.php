@@ -11,6 +11,7 @@ class Usuario
     protected string $tipoUsuario;
     protected string $imagem;
     protected DateTime $dataCadastro;
+    
    
     //construtor *****estudar******
     /*public function __construct(string $cpf, string $nome, string $email, string $senha, DateTime $dataNascimento, string $tipoUsuario, string $imagem, DateTime $dataCadastro)
@@ -37,6 +38,7 @@ class Usuario
     function setImagem(string $imagem): void {$this->imagem = $imagem;}
     function setDataCadastro(string $dataCadastro): void {$this->dataCadastro = $dataCadastro;}
 
+
     //getters
     public function getNome(): string {return $this->nome;}
     public function getEmail(): string {return $this->email;}
@@ -45,9 +47,8 @@ class Usuario
     public function getTipoUsuario(): string {return $this->tipoUsuario;}
     public function getImagem(): string {return $this->imagem;}
     public function getDataCadastro(): string {return $this->dataCadastro;}
-
-    //metodos em usuarioDAO
+   
+    //metodos em usuarioDAO ?
     //public function editarUsuario(): void{}
-
 }
 ?>

@@ -1,7 +1,7 @@
 <nav id='menu'>
         <ul id='listaMenu'>
                 <li><a href="./index.php">Página Inicial</a></li>
-                <li><a href="/exemplo_PDO_orientado_objetos/cadastrarPessoa.php">Adicionar Pessoa</a></li>
+                <li><a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a></li>
                 <li><a href="/exemplo_PDO_orientado_objetos/pesquisarPessoa.php">Pesquisar Pessoa</a></li>
                 <li><a href="/exemplo_PDO_orientado_objetos/cadastrarProduto.php">Adicionar Produto</a></li>
                 <li><a href="index.php?page=listarPaciente">Listar Paciente</a></li>
