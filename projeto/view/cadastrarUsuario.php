@@ -1,12 +1,7 @@
-<?php
- include_once('includes/componentes/cabecalho.php');
-?>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <title>Cadastrar Usuário</title>
-</head>
-<body>
-<?php require('includes/componentes/header.php') ?>
+<link rel="stylesheet" href="assets/css/index.css">
+<title>Cadastrar Usuário</title>
 <main>
+  <h2>Cadastrar Usuário</h2>
     <section>
     <form action="includes/logica/logica_usuario.php" method="post" enctype="multipart/form-data">
       <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome"></p>
@@ -22,6 +17,3 @@
     </form>
     </section>
 </main>
-<?php require('includes/componentes/footer.php');?>
-</body>
-</html>

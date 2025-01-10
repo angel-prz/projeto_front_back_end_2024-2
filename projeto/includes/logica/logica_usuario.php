@@ -30,27 +30,24 @@
         if (move_uploaded_file($arquivo_temporario, "../../imagens/$nome_arquivo")) {
                 echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
 
-
-                $usuario=new Pessoa();
+                $usuario=new Usuario();
                 $usuario->setNome($nome);
                 $usuario->setEmail($email);
                 $usuario->setCpf($cpf);
                 $usuario->setSenha($senha);
                 $usuario->setImagem($nome_arquivo);
-                $usuario->setDataNascimento($dataNascimento);
+                //converter a string para DateTIme
+                $usuario->setDataNascimento(new DateTime($dataNascimento));
                 $usuario->setTipoUsuario($tipoUsuario);
 
                 //pegar data hora atual
                 $dataCadastro = new DateTime('now');
                 //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
-                $usuario->setDataCadastro($dataCadastro->format('Y-m-d H:i:s'));
+                $usuario->setDataCadastro($dataCadastro);//$dataCadastro->format('Y-m-d H:i:s')
 
                 $UsuarioDAO= new UsuarioDAO($usuario);
 
-
-
                 $retorno=$UsuarioDAO->inserirUsuario($usuario);
-
                 
                 header('location:../../index.php');
          }

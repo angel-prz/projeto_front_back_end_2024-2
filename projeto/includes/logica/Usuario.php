@@ -33,20 +33,21 @@ class Usuario
     function setNome(string $nome): void {$this->nome = $nome;}
     function setEmail(string $email): void {$this->email = $email;}
     function setSenha(string $senha): void {$this->senha = $senha;}
-    function setDataNascimento(string $dataNascimento): void {$this->dataNascimento = $dataNascimento;}
-    function setTipoUsuario() : void {$this->tipoUsuario = $tipoUsuario;}
+    function setDataNascimento(DateTime $dataNascimento): void {$this->dataNascimento = $dataNascimento;}
+    function setTipoUsuario(string $tipoUsuario) : void {$this->tipoUsuario = $tipoUsuario;}
     function setImagem(string $imagem): void {$this->imagem = $imagem;}
-    function setDataCadastro(string $dataCadastro): void {$this->dataCadastro = $dataCadastro;}
+    function setDataCadastro(DateTime $dataCadastro): void {$this->dataCadastro = $dataCadastro;}
 
 
     //getters
+    public function getCpf(): string {return $this->cpf;}
     public function getNome(): string {return $this->nome;}
     public function getEmail(): string {return $this->email;}
     public function getSenha(): string {return $this->senha;}
-    public function getDataNascimento(): string {return $this->dataNascimento;}
+    public function getDataNascimento():DateTime {return $this->dataNascimento;}
     public function getTipoUsuario(): string {return $this->tipoUsuario;}
     public function getImagem(): string {return $this->imagem;}
-    public function getDataCadastro(): string {return $this->dataCadastro;}
+    public function getDataCadastro():DateTime {return $this->dataCadastro;}
    
     //metodos em usuarioDAO ?
     //public function editarUsuario(): void{}

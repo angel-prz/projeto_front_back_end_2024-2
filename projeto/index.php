@@ -24,8 +24,8 @@ include_once('includes/logica/UsuarioDAO.php');
 
         // Inclui o conteúdo do main dinamicamente
         switch ($page) {
-            case 'cadastrar':
-                include('includes/cadastrar.php');
+            case 'cadastrarUsuario':
+                include('view/cadastrarUsuario.php');
                 break;
             case 'listarPaciente':
                 include('view/listarPaciente.php');

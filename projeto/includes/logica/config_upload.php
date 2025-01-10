@@ -17,5 +17,5 @@ $limitar_tamanho="sim";
 $tamanho_bytes="500000";
 
 // se já existir o arquivo indica se ele deve ser sobrescrito (sim ou não)
-$sobrescrever="não";
+$sobrescrever="sim";
 ?>
