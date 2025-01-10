@@ -3,6 +3,7 @@
     require_once('UsuarioDAO.php'); 
     require_once('config_upload.php');
 
+
 #CADASTRO USUARIO
     if(isset($_POST['cadastrar'])){
         $nome = $_POST['nome'];
@@ -74,10 +75,10 @@
         //$usuario->setImagem($imagem);
         //$usuario->setDataCadastro($dataCadastro);
 
-        $UsuarioDAO= new UsuarioDAO();
-
-        $retorno=$UsuarioDAO->acessarUsuario($usuario);
-
+        $UsuarioDAO = new UsuarioDAO();
+        var_dump($usuario);
+        $retorno = $UsuarioDAO->acessarUsuario($usuario);
+        var_dump($retorno);
         if($retorno){
             session_start();
             $_SESSION['logado'] = true;
@@ -87,6 +88,7 @@
         }
         else{
             header('location:../../login.php');
+            echo $email , $senha;
         }
     }
 
