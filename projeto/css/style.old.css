@@ -1,0 +1,108 @@
+/* css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* 1 coluna menor para o aside e 3 colunas para o main */
+    grid-template-rows: auto 1fr auto; /* Cabeçalho, conteúdo principal e rodapé */
+    grid-template-areas:
+        "header header"
+        "navbar main"
+        "footer footer"; /* Organizando as áreas do grid */
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    grid-area: header;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+nav {
+    grid-area: navbar;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+aside {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* imagem perfil */
+.imagem_perfil
+{
+    border-radius: 50%; /* deixar circular */
+    width: 100px;
+    height: 100px;
+}
+
+/************************************ 
+HEADER 
+************************************/
+#div_header {
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+#div_header_elemento {
+    display: table-cell;
+    background-color: rgb(0, 0, 0); /*Optional*/
+}
+
+
+/************************************ 
+listaPaciente.php
+************************************/
+/*lista*/
+#ul_listaPaciente li 
+{
+    display: inline;
+}
+
+#il_listaPaciente + #il_listaPaciente::before
+{
+    content: "    ·    ";
+}
+
+main 
+{
+    max-height: 80vh; /* Define uma altura máxima para o <main> (80% da altura da janela) */
+    overflow-y: auto; /* Ativa a rolagem vertical dentro do <main> */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+    padding: 10px; /* Espaçamento interno para manter os elementos bem alinhados */
+    border: 1px solid #ccc; /* Opcional: Adiciona uma borda para destacar o container */
+    background-color: #f9f9f9; /* Opcional: Adiciona uma cor de fundo para destaque */
+}
