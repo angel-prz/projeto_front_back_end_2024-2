@@ -2,8 +2,8 @@
 
 require_once 'Conecta.php';
 //require_once 'Usuario.php';
-//classe com DAO genericos
-class UsuarioDAO
+
+class PacienteDAO
 {
     private $conexao;
 
@@ -19,22 +19,37 @@ class UsuarioDAO
     /*  =======================
         * Usuario Base
         * ======================= */
-    function inserirUsuario($usuario)
+    function inserirPaciente($paciente)
     {
         try {
             $query = $this->conexao->prepare("INSERT INTO usuario (cpf, nome, email, senha, dataNascimento, tipo_usuario, imagem, dataCadastro) VALUES (:cpf, :nome, :email, :senha, :dataNascimento, :tipo_usuario, :imagem, :dataCadastro)");
             $resultado = $query->execute([
-                'cpf' => $usuario->getCpf(),
-                'nome' => $usuario->getNome(),
-                'email' => $usuario->getEmail(),
-                'senha' => $usuario->getsenha(),
-                'dataNascimento' => $usuario->getDataNascimento()->format('Y-m-d'),
-                'tipo_usuario' => $usuario->getTipoUsuario(),
-                'imagem' => $usuario->getImagem(),
-                'dataCadastro' => $usuario->getDataCadastro()->format('Y-m-d') //converte DateTIme para string
+                'cpf' => $paciente->getCpf(),
+                'nome' => $paciente->getNome(),
+                'email' => $paciente->getEmail(),
+                'senha' => $paciente->getsenha(),
+                'dataNascimento' => $paciente->getDataNascimento()->format('Y-m-d'),
+                'tipo_usuario' => $paciente->getTipoUsuario(),
+                'imagem' => $paciente->getImagem(),
+                'dataCadastro' => $paciente->getDataCadastro()->format('Y-m-d') //converte DateTIme para string
             ]);
 
             return $resultado;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+    /*  =======================
+        * Paciente
+        * ======================= */
+    function listarPaciente()
+    {
+        try {
+            //listar por ordem de criação do usuário 
+            $query = $this->conexao->prepare("SELECT * FROM usuario WHERE tipo_usuario = 'paciente' ORDER BY dataCadastro DESC");
+            $query->execute();
+            $pacientes = $query->fetchAll();
+            return $pacientes;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
@@ -69,7 +84,7 @@ class UsuarioDAO
         try {
             $query = $this->conexao->prepare("select * from pessoa where codpessoa=:codpessoa");
             if ($query->execute(['codpessoa' => $pessoa->getcodpessoa()])) {
-                $pessoa = $query->fetch(); //coloca os dados num array $usuario
+                $pessoa = $query->fetch(); //coloca os dados num array $paciente
                 return $pessoa;
             } else {
                 return false;
@@ -79,14 +94,14 @@ class UsuarioDAO
         }
     }
 
-    function acessarUsuario($usuario)
+    function acessarUsuario($paciente)
     {
         try {
             $query = $this->conexao->prepare("SELECT * FROM usuario where email=:email and senha=:senha");
-            if ($query->execute(['email' => $usuario->getEmail(), 'senha' => $usuario->getSenha()])) {
-                $usuario = $query->fetch(); //coloca os dados num array $usuario
-                if ($usuario) {
-                    return $usuario;
+            if ($query->execute(['email' => $paciente->getEmail(), 'senha' => $paciente->getSenha()])) {
+                $paciente = $query->fetch(); //coloca os dados num array $paciente
+                if ($paciente) {
+                    return $paciente;
                 } else {
                     return false;
                 }

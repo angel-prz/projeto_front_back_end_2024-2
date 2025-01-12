@@ -1,11 +1,11 @@
 <?php
-    require_once('Usuario.php');
-    require_once('UsuarioDAO.php'); 
     require_once('config_upload.php');
     require_once('Paciente.php');
+    require_once('PacienteDAO.php');
 
 #CADASTRO USUARIO
-    if(isset($_POST['cadastrar'])){
+    if(isset($_POST['cadastrar']))
+    {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
@@ -15,44 +15,37 @@
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name']; 
-        if (!empty($nome_arquivo)){
+        if (!empty($nome_arquivo))
+        {
+            if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
+                die("Arquivo já existe");
 
-        if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
-            die("Arquivo já existe");
+            if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
+                die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
 
-        if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
-            die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
+            $ext = strrchr($nome_arquivo,'.');
+            if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
+                die("Extensão de arquivo inválida para upload");
 
-        $ext = strrchr($nome_arquivo,'.');
-        if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
-            die("Extensão de arquivo inválida para upload");
+            if (move_uploaded_file($arquivo_temporario, "../../imagens/$nome_arquivo")) 
+            {
+                    echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
+                    //usando construtor
+                    $paciente=new Paciente($nome, $email, $cpf, $senha, new DateTime($dataNascimento), $tipoUsuario, $nome_arquivo, $historico);
 
-        if (move_uploaded_file($arquivo_temporario, "../../imagens/$nome_arquivo")) {
-                echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
+                    //pegar data hora atual
+                    $dataCadastro = new DateTime('now');
+                    //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
+                    $paciente->setDataCadastro($dataCadastro);//$dataCadastro->format('Y-m-d H:i:s')
 
-                $usuario=new Usuario();
-                $usuario->setNome($nome);
-                $usuario->setEmail($email);
-                $usuario->setCpf($cpf);
-                $usuario->setSenha($senha);
-                $usuario->setImagem($nome_arquivo);
-                //converter a string para DateTIme
-                $usuario->setDataNascimento(new DateTime($dataNascimento));
-                $usuario->setTipoUsuario($tipoUsuario);
+                    $pacienteDAO= new PacienteDAO($paciente);
 
-                //pegar data hora atual
-                $dataCadastro = new DateTime('now');
-                //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
-                $usuario->setDataCadastro($dataCadastro);//$dataCadastro->format('Y-m-d H:i:s')
-
-                $UsuarioDAO= new UsuarioDAO($usuario);
-
-                $retorno=$UsuarioDAO->inserirUsuario($usuario);
-                
-                header('location:../../index.php');
-         }
+                    $retorno=$pacienteDAO->inserirPaciente($paciente);
+                    
+                    header('location:../../index.php');
+            }
+        }
     }
-}
 #ENTRAR
     if(isset($_POST['entrar'])){
         $email = $_POST['email'];
@@ -63,18 +56,18 @@
         //$imagem = $_POST['imagem'];
         //$dataCadastro = $_POST['dataCadastro'];
 
-        $usuario=new Usuario();
-        $usuario->setEmail($email);
-        $usuario->setSenha($senha);
-        //$usuario->setCpf($cpf);
-        //$usuario->setDataNascimento($dataNascimento);
-        //$usuario->setTipoUsuario($tipoUsuario);
-        //$usuario->setImagem($imagem);
-        //$usuario->setDataCadastro($dataCadastro);
+        $paciente=new Usuario();
+        $paciente->setEmail($email);
+        $paciente->setSenha($senha);
+        //$paciente->setCpf($cpf);
+        //$paciente->setDataNascimento($dataNascimento);
+        //$paciente->setTipoUsuario($tipoUsuario);
+        //$paciente->setImagem($imagem);
+        //$paciente->setDataCadastro($dataCadastro);
 
-        $UsuarioDAO = new UsuarioDAO();
-        var_dump($usuario);
-        $retorno = $UsuarioDAO->acessarUsuario($usuario);
+        $pacienteDAO = new UsuarioDAO();
+        var_dump($paciente);
+        $retorno = $pacienteDAO->acessarUsuario($paciente);
         var_dump($retorno);
         if($retorno){
             session_start();

@@ -17,7 +17,7 @@ include_once('includes/logica/UsuarioDAO.php');
         include('includes/componentes/navbar.php');
 
         // Inclui a barra lateral
-        include('includes/componentes/aside.php');
+        //include('includes/componentes/aside.php');
 
         // Define o arquivo a ser incluído no main dependendo da URL ou de uma lógica
         $page = isset($_GET['page']) ? $_GET['page'] : 'listarPaciente'; // Default para "listar"

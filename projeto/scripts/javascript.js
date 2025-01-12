@@ -16,12 +16,11 @@ function confirma_excluir()
 }
 
 //esperar pelo documento inteiro carregar
-document.addEventListener("DOMContentLoaded", function() 
-
+document.addEventListener("DOMContentLoaded", function () 
 {
     // CRM = MEDICO , COREN = ENFERMEIRO/TEC, CRO = DENTISTA/ODONTOLOGISTA
     //define objeto que mapeia o tipo de profissional para o tipo de conselho
-    const conselhoMap = 
+    const conselhoMap =
     {
         "medico": "CRM",
         "enfermeiro": "COREN",
@@ -29,69 +28,64 @@ document.addEventListener("DOMContentLoaded", function()
         "dentista": "CRO",
         "odontologista": "CRO"
     };
-    //manipular o select de tipo de usuário para mostrar parte do formulario do profissional de saúde
-    document.getElementById("tipoUsuario").addEventListener("change", function()
+    //verificar se o elemento existe na página para poder executar as funções que modificam ele
+    if (document.getElementById("tipoUsuario") != null) 
     {
-        let tipoUsuario = document.getElementById("tipoUsuario").value;
-        if (tipoUsuario == "profissional_saude")
+        //manipular o select de tipo de usuário para mostrar parte do formulario do profissional de saúde
+        // também direcionar para o arquivo de logica do profissional de saúde
+        document.getElementById("tipoUsuario").addEventListener("change", function () 
         {
-            document.getElementById("divTipoProfissional").style.display = "block";
-            document.getElementById("divTipoProfissional").style.visibility = "visible";
-            document.getElementById("tipoProfissional").value = "medico";
-            document.getElementById("tipoConselho").value = conselhoMap["medico"];
-        }
-        else
-        {
-            document.getElementById("divTipoProfissional").style.display = "none";
-            document.getElementById("divTipoProfissional").style.visibility = "hidden";
-        }
-    });
-
-    
-    //função para adicionar 2 inputs que lerão CONSELHO e NUMERO
-    //Tipo de conselho é automatico com switch case
-
-    document.getElementById("tipoProfissional").addEventListener("change", function()
-    {
-        let tipoProfissional = document.getElementById("tipoProfissional").value;
-        let divTipoProfissional = document.getElementById("divTipoProfissional");
-        let tipoConselho = document.getElementById("tipoConselho");
-        console.log("BLA" + tipoConselho);
-        //verifica se o tipo de profissional ta no objeto de mapemento
-        if(tipoProfissional in conselhoMap)
-        {
-            let divNumeroConselho = document.getElementById("divNumeroConselho");
-            //verificar se a div ja existe
-            if(!divNumeroConselho)
+            let tipoUsuario = document.getElementById("tipoUsuario").value;
+            if (tipoUsuario == "profissional_saude") 
             {
-                console.log(tipoConselho);
-                //cria div para numero do conselho para modificar sem apagar o tipo conselho
-                let divNumeroConselho = document.createElement("DIV");
-                //define valor do campo tipoConselho
-                tipoConselho.setAttribute("value", conselhoMap[tipoProfissional]);
-
-                //cria label para numero do conselho
-                let labelNumeroConselho = document.createElement("LABEL");
-                labelNumeroConselho.setAttribute("for", "numeroConselho");
-                //cria campo para numero do conselho
-                let numeroConselho = document.createElement("INPUT");
-
-                //setAttribute cria denovo e denovo denovo . .. . setAttributeNode cria e substitui
-                numeroConselho.setAttribute("type", "text");
-                numeroConselho.setAttribute("name", "numeroConselho");
-                numeroConselho.setAttribute("id", "numeroConselho");
-
-                //adiciona os campos pra div do tipo profissional
-                divTipoProfissional.appendChild(tipoConselho);
-                divNumeroConselho.appendChild(labelNumeroConselho);
-                divNumeroConselho.appendChild(numeroConselho);
+                document.getElementById("divTipoProfissional").style.display = "block";
+                document.getElementById("divTipoProfissional").style.visibility = "visible";
+                document.getElementById("tipoProfissional").value = "medico";
+                document.getElementById("tipoConselho").value = conselhoMap["medico"];
+                document.getElementById("divNumeroConselho").style.display = "block";
+                document.getElementById("divNumeroConselho").style.visibility = "visible";
+                document.getElementById("myForm").action = "/logica/logica_profissionalSaude.php";
             }
             else 
-                //remove a div
-                document.getElementById("divNumeroConselho").remove();
-        }
-        
-    });
+            {
+                document.getElementById("divTipoProfissional").style.display = "none";
+                document.getElementById("divTipoProfissional").style.visibility = "hidden";
+                document.getElementById("myForm").action = "/logica/logica_usuario.php";
+            }
+        });
+
+
+        //função para adicionar 2 inputs que lerão CONSELHO e NUMERO
+        //Tipo de conselho é automatico com switch case
+
+        const tipoProfissionalElement = document.getElementById("tipoProfissional");
+        tipoProfissionalElement.addEventListener("change", function () 
+        {
+            let tipoProfissional = tipoProfissionalElement.value;
+            let tipoConselho = document.getElementById("tipoConselho");
+            console.log("BLA" + tipoConselho);
+            //verifica se o tipo de profissional ta no objeto de mapemento (redundante)
+            if (tipoProfissional in conselhoMap) 
+            {
+                console.log(conselhoMap[tipoProfissional]);
+                tipoConselho.readOnly = false;
+                tipoConselho.value = conselhoMap[tipoProfissional];
+                console.log(tipoConselho.getAttribute("value"));
+                tipoConselho.readOnly = true;
+            }
+        });
+
+        const numeroConselhoElement = document.getElementById("numeroConselho");
+        numeroConselhoElement.addEventListener("change", () => 
+        {
+            let numeroConselho = numeroConselhoElement.value;
+            if (isNaN(numeroConselho)) 
+            {
+                alert("O número do conselho deve ser apenas números!");
+                numeroConselhoElement.value = "";
+            }
+        });
+    }
 });
 
  //criar campos de TIPO E NUMERO DO CONSELHO

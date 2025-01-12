@@ -1,11 +1,11 @@
 <?php
- require_once('includes/logica/UsuarioDAO.php'); 
+ require_once('includes/logica/PacienteDAO.php'); 
 ?>
 <link rel="stylesheet" href="css/style.css">
 <main>
 <h3> Listagem de Usuários </h3>
     <?php
-        $pacientesDAO = new UsuarioDAO();
+        $pacientesDAO = new PacienteDAO();
         $pacientes = $pacientesDAO->listarPaciente();
         if(empty($pacientes)){
             ?>
