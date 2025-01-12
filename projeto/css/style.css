@@ -176,7 +176,7 @@ Estilo dos usuarios
     content: " · "; /* Separador */
 }
 
-#tipo_profissional 
+#divTipoProfissional 
 {
     display: none;
 }
