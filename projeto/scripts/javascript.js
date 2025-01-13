@@ -15,7 +15,7 @@ function confirma_excluir()
     }
 }
 
-//esperar pelo documento inteiro carregar
+//esperar pela pagina inteiro carregar
 document.addEventListener("DOMContentLoaded", function () 
 {
     // CRM = MEDICO , COREN = ENFERMEIRO/TEC, CRO = DENTISTA/ODONTOLOGISTA
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function ()
         "dentista": "CRO",
         "odontologista": "CRO"
     };
+    
     //verificar se o elemento existe na página para poder executar as funções que modificam ele
     if (document.getElementById("tipoUsuario") != null) 
     {
@@ -38,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function ()
             let tipoUsuario = document.getElementById("tipoUsuario").value;
             if (tipoUsuario == "profissional_saude") 
             {
+                //mudar action do formulario usuario/paciente/profissional
+                //document.getElementById("formCadastroUsuario").action = "includes/logica_profissional.php"; 
+
                 document.getElementById("divTipoProfissional").style.display = "block";
                 document.getElementById("divTipoProfissional").style.visibility = "visible";
                 document.getElementById("tipoProfissional").value = "medico";

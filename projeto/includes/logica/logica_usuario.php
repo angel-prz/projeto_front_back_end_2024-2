@@ -2,10 +2,10 @@
     require_once('Usuario.php');
     require_once('UsuarioDAO.php'); 
     require_once('config_upload.php');
-    require_once('Paciente.php');
-
+    
 #CADASTRO USUARIO
-    if(isset($_POST['cadastrar'])){
+    if(isset($_POST['cadastrar']))
+    {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
@@ -15,22 +15,14 @@
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name']; 
-        if (!empty($nome_arquivo)){
-
-        if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
-            die("Arquivo já existe");
-
-        if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
-            die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
-
-        $ext = strrchr($nome_arquivo,'.');
-        if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
-            die("Extensão de arquivo inválida para upload");
-
-        if (move_uploaded_file($arquivo_temporario, "../../imagens/$nome_arquivo")) {
-                echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
-
-                $usuario=new Usuario();
+        try {
+            // Chama a função de upload
+            $uploadedFile = uploadArquivo($_FILES['imagem'], $caminho);
+    
+            echo "Upload concluído com sucesso: $uploadedFile<br>";
+    
+            // Resto do código para processar o cadastro
+            $usuario=new Usuario();
                 $usuario->setNome($nome);
                 $usuario->setEmail($email);
                 $usuario->setCpf($cpf);
@@ -50,9 +42,11 @@
                 $retorno=$UsuarioDAO->inserirUsuario($usuario);
                 
                 header('location:../../index.php');
-         }
+        } catch (Exception $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+                
     }
-}
 #ENTRAR
     if(isset($_POST['entrar'])){
         $email = $_POST['email'];

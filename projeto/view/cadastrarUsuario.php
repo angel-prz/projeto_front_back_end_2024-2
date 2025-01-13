@@ -4,7 +4,7 @@
 <main>
   <h2>Cadastrar Usuário</h2>
     <section>
-    <form action="includes/logica/logica_usuario.php" method="post" enctype="multipart/form-data">
+    <form action="includes/logica/logica_usuario.php" method="post" enctype="multipart/form-data" id="formCadastroUsuario">
       <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome"></p>
       <p><label for="email">email: </label><input type="text" name="email" id="email"></p>
       <p><label for="cpf">CPF: </label><input type="text" name="cpf" id="cpf"></p>

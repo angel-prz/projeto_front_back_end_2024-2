@@ -3,7 +3,7 @@
 require_once 'Conecta.php';
 //require_once 'Usuario.php';
 
-class PacienteDAO
+class PacienteDAO extends UsuarioDAO
 {
     private $conexao;
 
