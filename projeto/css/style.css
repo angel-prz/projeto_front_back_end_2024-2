@@ -109,7 +109,7 @@ header
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
-
+/* aumenta o tamnho do incone passando o mouse */
 .icon-btn:hover 
 {
     transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */

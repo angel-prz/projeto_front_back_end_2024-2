@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="css/style.css">
-<script src="scripts/javascript.js"></script>
 <title>Cadastrar Usuário</title>
 <main>
   <h2>Cadastrar Usuário</h2>
