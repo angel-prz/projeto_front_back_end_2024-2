@@ -12,7 +12,7 @@
     </section>
     <?php
     
-
+    
         $pacientesDAO = new PacienteDAO();
         $pacientes = $pacientesDAO->listarPaciente();
         if(empty($pacientes)){

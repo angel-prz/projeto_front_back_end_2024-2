@@ -12,17 +12,14 @@
     </section>
     <?php
     
-
-        $pacientesDAO = new PacienteDAO();
-        $pacientes = $pacientesDAO->pesquisarPaciente($paciente);
-        if(empty($pacientes)){
+        if(empty($retorno)){
         ?>
             <section>
                 <p>Nenhum resultado encontrado.</p>
             </section>
         <?php
         }
-        foreach($pacientes as $paciente)
+        foreach($retorno as $paciente)
         {
             ?>
             <section>

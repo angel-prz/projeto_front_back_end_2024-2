@@ -30,6 +30,9 @@ include_once('includes/logica/UsuarioDAO.php');
             case 'listarPaciente':
                 include('view/listarPaciente.php');
                 break;
+            case 'listarPaciente':
+                include('view/resultadoPaciente.php');
+                break;
             default:
                 include('view/listarPaciente.php'); // Redireciona para "listar" por padrão
                 break;

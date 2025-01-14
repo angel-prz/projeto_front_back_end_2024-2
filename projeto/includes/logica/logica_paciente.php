@@ -2,6 +2,7 @@
     require_once('config_upload.php');
     require_once('Paciente.php');
     require_once('PacienteDAO.php');
+    define('BLA', '/var/www/projeto/projeto_front_back_end_2024-2/projeto/');
 
 #CADASTRO USUARIO
     if(isset($_POST['cadastrar']))
@@ -22,7 +23,7 @@
             echo "Upload concluído com sucesso: $uploadedFile<br>";
             
                 //usando construtor
-                $paciente=new Paciente($nome, $email, $cpf, $senha, new DateTime($dataNascimento), $tipoUsuario, $nome_arquivo, $historico);
+                $paciente=new Paciente($nome, $email, $cpf, $senha, new DateTime($dataNascimento), $tipoUsuario, $nome_arquivo, $historico,);
 
                 //pegar data hora atual
                 $dataCadastro = new DateTime('now');
@@ -52,8 +53,8 @@ if(isset($_POST['pesquisar'])){
 
     $PacienteDAO= new PacienteDAO();
 
-    $retorno=$PacienteDAO->pesquisarpaciente($paciente);
+    $retorno=$PacienteDAO->pesquisarPaciente($paciente);
 
-    require_once('../../resultadoPaciente.php');
+    require_once(__DIR__ . '../../index.php?page=resultadoPaciente');
 }
 ?>
