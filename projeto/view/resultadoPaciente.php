@@ -14,7 +14,7 @@
     
 
         $pacientesDAO = new PacienteDAO();
-        $pacientes = $pacientesDAO->listarPaciente();
+        $pacientes = $pacientesDAO->pesquisarPaciente($paciente);
         if(empty($pacientes)){
         ?>
             <section>

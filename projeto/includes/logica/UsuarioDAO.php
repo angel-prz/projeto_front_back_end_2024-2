@@ -101,7 +101,7 @@ class UsuarioDAO
     function pesquisarPessoa($pessoa)
     {
         try {
-            $query = $this->conexao->prepare("select * from pessoa where upper(nome) like :nome");
+            $query = $this->conexao->prepare("select * from usuario where upper(nome) like :nome");
             if ($query->execute(['nome' => $pessoa->getnome()])) {
                 $pessoas = $query->fetchAll(); //coloca os dados num array $pessoa
                 if ($pessoas) {

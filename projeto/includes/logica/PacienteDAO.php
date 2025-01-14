@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Conecta.php';
-//require_once 'Usuario.php';
+require_once 'UsuarioDAO.php';
 
 class PacienteDAO extends UsuarioDAO
 {
@@ -40,8 +40,8 @@ class PacienteDAO extends UsuarioDAO
         }
     }
     /*  =======================
-        * Paciente
-        * ======================= */
+    * Paciente
+    * =======================*/
     function listarPaciente()
     {
         try {
@@ -56,11 +56,11 @@ class PacienteDAO extends UsuarioDAO
     }
 
 
-    function alterarPessoa($pessoa)
+    function alterarpaciente($paciente)
     {
         try {
-            $query = $this->conexao->prepare("update pessoa set nome= :nome, email = :email, cpf= :cpf, senha= :senha where codpessoa = :codpessoa");
-            $resultado = $query->execute(['nome' => $pessoa->getnome(), 'email' => $pessoa->getemail(), 'cpf' => $pessoa->getcpf(), 'senha' => $pessoa->getsenha(), 'codpessoa' => $pessoa->getcodpessoa()]);
+            $query = $this->conexao->prepare("update paciente set nome= :nome, email = :email, cpf= :cpf, senha= :senha where codpaciente = :codpaciente");
+            $resultado = $query->execute(['nome' => $paciente->getnome(), 'email' => $paciente->getemail(), 'cpf' => $paciente->getcpf(), 'senha' => $paciente->getsenha(), 'codpaciente' => $paciente->getcodpaciente()]);
             return $resultado;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
@@ -68,27 +68,12 @@ class PacienteDAO extends UsuarioDAO
     }
 
 
-    function deletarPessoa($pessoa)
+    function deletarpaciente($paciente)
     {
         try {
-            $query = $this->conexao->prepare("delete from pessoa where codpessoa = :codpessoa");
-            $resultado = $query->execute(['codpessoa' => $pessoa->getcodpessoa()]);
+            $query = $this->conexao->prepare("delete from paciente where codpaciente = :codpaciente");
+            $resultado = $query->execute(['codpaciente' => $paciente->getcodpaciente()]);
             return $resultado;
-        } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-    }
-
-    function buscarPessoa($pessoa)
-    {
-        try {
-            $query = $this->conexao->prepare("select * from pessoa where codpessoa=:codpessoa");
-            if ($query->execute(['codpessoa' => $pessoa->getcodpessoa()])) {
-                $pessoa = $query->fetch(); //coloca os dados num array $paciente
-                return $pessoa;
-            } else {
-                return false;
-            }
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
@@ -113,14 +98,15 @@ class PacienteDAO extends UsuarioDAO
         }
     }
 
-    function pesquisarPessoa($pessoa)
+   
+    function pesquisarPaciente($paciente)
     {
         try {
-            $query = $this->conexao->prepare("select * from pessoa where upper(nome) like :nome");
-            if ($query->execute(['nome' => $pessoa->getnome()])) {
-                $pessoas = $query->fetchAll(); //coloca os dados num array $pessoa
-                if ($pessoas) {
-                    return $pessoas;
+            $query = $this->conexao->prepare("SELECT * FROM usuario WHERE UPPER(nome) like :nome AND tipo_usuario = 'paciente'");
+            if ($query->execute(['nome' => $paciente->getnome()])) {
+                $pacientes = $query->fetchAll(); //coloca os dados num array $paciente
+                if ($pacientes) {
+                    return $pacientes;
                 } else {
                     return false;
                 }

@@ -21,27 +21,27 @@
     
             echo "Upload concluído com sucesso: $uploadedFile<br>";
     
-            // Resto do código para processar o cadastro
+            //nova instancia de usuario
             $usuario=new Usuario();
-                $usuario->setNome($nome);
-                $usuario->setEmail($email);
-                $usuario->setCpf($cpf);
-                $usuario->setSenha($senha);
-                $usuario->setImagem($nome_arquivo);
-                //converter a string para DateTIme
-                $usuario->setDataNascimento(new DateTime($dataNascimento));
-                $usuario->setTipoUsuario($tipoUsuario);
+            $usuario->setNome($nome);
+            $usuario->setEmail($email);
+            $usuario->setCpf($cpf);
+            $usuario->setSenha($senha);
+            $usuario->setImagem($nome_arquivo);
+            //converter a string para DateTIme
+            $usuario->setDataNascimento(new DateTime($dataNascimento));
+            $usuario->setTipoUsuario($tipoUsuario);
 
-                //pegar data hora atual
-                $dataCadastro = new DateTime('now');
-                //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
-                $usuario->setDataCadastro($dataCadastro);//$dataCadastro->format('Y-m-d H:i:s')
+            //pegar data hora atual
+            $dataCadastro = new DateTime('now');
+            //setar formato do banco de dados ANO-MES-DIA HORA:MINUTO:SEGUNDO
+            $usuario->setDataCadastro($dataCadastro);//$dataCadastro->format('Y-m-d H:i:s')
 
-                $UsuarioDAO= new UsuarioDAO($usuario);
+            $UsuarioDAO= new UsuarioDAO($usuario);
 
-                $retorno=$UsuarioDAO->inserirUsuario($usuario);
+            $retorno=$UsuarioDAO->inserirUsuario($usuario);
                 
-                header('location:../../index.php');
+            header('location:../../index.php');
         } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();
         }
@@ -158,7 +158,7 @@
 
                 $retorno=$PessoaDAO->pesquisarPessoa($pessoa);
 
-                require_once('../../mostrarPessoa.php');
+                require_once('/view/mostrarPessoa.php');
     }
 #ALTERAR PERFIL
     if(isset($_POST['alterarPerfil'])){
