@@ -1,16 +1,28 @@
-<nav id='menu'>
+<nav id='menu' class="">
         <ul id='listaMenu'>
-                <li><a href="./index.php">Página Inicial</a></li>
-                <li><a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a></li>
-                <li><a href="index.php?page=resultadoPaciente">Pesquisar Pessoa</a></li>
-                <li><a href="/exemplo_PDO_orientado_objetos/cadastrarProduto.php">Adicionar Produto</a></li>
-                <li><a href="index.php?page=listarPaciente">Listar Paciente</a></li>
-                <li><a href="/exemplo_PDO_orientado_objetos/pesquisarProduto.php">Pesquisar Produto</a></li>
-                <li><a href="/exemplo_PDO_orientado_objetos/alterarPerfil.php">Alterar Perfil</a></li>       
-                <li><a href="/exemplo_PDO_orientado_objetos/excluirConta.php">Excluir Conta</a></li>                              
-                        <form action="includes/logica/logica_usuario.php" method="post">
-                                <input type="submit" name="sair" value="Sair">
-                        </form>
+                <li>
+                        <a href="./index.php">Página Inicial</a>
                 </li>
+                <li>
+                        <a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a>
+                </li>
+                <li>
+                        <a href="index.php?page=resultadoPaciente">Pesquisar Pessoa</a>
+                 </li>
+                <li>
+                        <a href="index.php?page=marcarConsulta">Marcar Consulta</a>
+                </li>
+                <li>
+                        <a href="index.php?page=listarPaciente">Listar Paciente</a>
+                </li>
+                <li>
+                        <a href=""></a>
+                </li>
+                <li>
+                        <a href=""></a>
+                </li>       
+                <li>
+                        <a href=""></a>
+                </li>                              
         </ul>
 </nav>

@@ -59,9 +59,9 @@ header
     background-color: #007BFF;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 1em;
     /*position: fixed;*/
-    padding: 10px 20px;
+    padding: 0.625em 1.25em;
     color: white;/* Fixa o cabeçalho no topo da tela */
 }
 
@@ -72,32 +72,32 @@ header
     align-items: center;
 }
 
-/* Logo */
+/* Logo  cabeçalho*/
 .logo 
 {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre o logo e o texto */
+    gap: 0.625em; /* Espaço entre o logo e o texto */
 }
 
 .logo-img 
 {
-    width: 100px;
-    height: 30px;
+    width:  6.25em;
+    height: 1.875em;
 }
 
 .logo span 
 {
-    font-size: 18px;
+    font-size: 1.125em;
     font-weight: bold;
 }
 
-/* Navigation Icons */
+/* icones cabeçaljo */
 .nav-icons 
 {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre os ícones */
+    gap: 1em; /* Espaço entre os ícones */
 }
 
 .icon-btn 
@@ -105,7 +105,7 @@ header
     background: none;
     border: none;
     color: white;
-    font-size: 18px;
+    font-size: 0.9375em;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
@@ -115,9 +115,67 @@ header
     transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
 }
 
+.icon-btn > .dropdown-menu
+{
+    display: none; /* inicia oculto */
+    position: absolute;
+    top: 2.5em; /* posicao do menu dropdown */
+    right: 0;
+    background-color: #fff;
+    border: 0.0625em solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 9.375em;
+    z-index: 10;
+}
+
+.icon-btn > .dropdown-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.icon-btn > .dropdown-menu ul li {
+    padding: 10px 15px;
+}
+
+.icon-btn > .dropdown-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+}
+
+.icon-btn > .dropdown-menu ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.icon-btn > .dropdown-menu.show {
+    display: block;
+}
+
 .icon-btn:focus 
 {
     outline: none;
+}
+
+/* botao sair */
+.botao_sair
+{
+    background-color: #ff4d4d; /* Cor de fundo vermelha */
+    color: #fff; /* Texto branco */
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%; /* Ocupa toda a largura do item */
+    text-align: center;
+    border-radius: 5px;
+}
+
+.botao_sair:hover {
+    background-color: #e60000; /* Cor de fundo mais escura ao passar o mouse */
 }
 
 /************************************
@@ -127,11 +185,12 @@ nav
 {
     grid-area: navbar;
     background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 0.9375em;
+    border-radius: 0.5em;
     overflow-x: auto;
-    max-height: 768px; /* Permite rolagem horizontal para menus longos */
+    max-height: 768px; 
 }
+
 
 /* Main Content */
 main 
@@ -139,8 +198,8 @@ main
     grid-area: main;
     padding: 15px;
     background-color: #fff;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    border-radius: 0.5em;
+    border: 0.0625em solid #ddd;
     max-height: 60vh; /* Altura máxima para rolagem */
     overflow-y: auto; /* Ativa rolagem interna no conteúdo */
 }
@@ -152,40 +211,93 @@ footer
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 0.625em;
 }
 
 
 /************************************
 Estilo dos usuarios
 ************************************/
-/* Imagem de perfil */
-.imagem_perfil 
-{
-    border-radius: 50%; /* Circular */
-    width: 100px;
-    height: 100px;
+/* Estilo do formulário */
+.lista-paciente {
+    margin: 10px 0;
 }
 
-/* Lista de Pacientes */
-#ul_listaPaciente 
-{
+/* Flex container */
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    padding: 0.75em;
+    border: 0.0625em solid #ccc;
+    border-radius: 0.3125em;
+    background-color: #f9f9f9;
     list-style: none;
+    margin: 0;
     padding: 0;
+    height: 5vh;
+}
+
+/* Itens flexíveis */
+.flex-item {
     margin: 0;
 }
 
-#ul_listaPaciente li 
-{
-    display: inline-block; /* Melhor visual em telas pequenas */
-    margin-right: 10px;
+/* Imagem de perfil */
+.imagem_perfil {
+    border-left: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    object-fit: cover;
+    /*border: 0.625em solid #ddd;*/
 }
 
-#il_listaPaciente + #il_listaPaciente::before 
-{
-    content: " · "; /* Separador */
+/* Nome do paciente */
+.nome {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    font-size: 0.875em;
 }
 
+/* Botões */
+.flex-container button {
+    padding: 0.3125em 0.625em;
+    font-size: 0.75em;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.flex-container button:nth-child(1) {
+    background-color: #007bff; /* Azul para Ficha */
+    color: white;
+}
+
+.flex-container button:nth-child(2) {
+    background-color: #dc3545; /* Vermelho para Deletar */
+    color: white;
+}
+
+/* Hover nos botões */
+.flex-container button:hover {
+    filter: brightness(0.9);
+}
+
+
+/*botoes*/
+button[name="ficha"]
+{
+    flex-grow: 1;
+    background-color: #007bff;
+    color: white
+}
+button[name="deletar"]
+{
+    flex-grow: 1;
+    background-color: red;
+    color: white
+}
 /************************************
 Formulário cadastro usuário
 ************************************/

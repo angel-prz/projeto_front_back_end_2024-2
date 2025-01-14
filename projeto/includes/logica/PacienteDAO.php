@@ -42,8 +42,19 @@ class PacienteDAO extends UsuarioDAO
     /*  =======================
     * Paciente
     * =======================*/
-    function listarPaciente()
+    function listarPaciente($nome = null)
     {
+        if($nome)
+        {
+            try{
+                $query = $this->conexao->prepare("SELECT * FROM usuario WHERE UPPER(nome) like :nome AND tipo_usuario = 'paciente'");
+                $query->execute(['nome' => '%' . strtoupper($nome) . '%']);
+                $pacientes = $query->fetchAll();
+                return $pacientes;
+            } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            }
+        }
         try {
             //listar por ordem de criação do usuário 
             $query = $this->conexao->prepare("SELECT * FROM usuario WHERE tipo_usuario = 'paciente' ORDER BY dataCadastro DESC");

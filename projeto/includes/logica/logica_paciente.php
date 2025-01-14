@@ -42,19 +42,12 @@
     
 
 
-#PESQUISAR PACIENTE
-if(isset($_POST['pesquisar'])){
-
-    $paciente=new Paciente();
-
-    $nome = "%".strtoupper($_POST['nome'])."%";
-
-    $paciente->setNome($nome);
-
-    $PacienteDAO= new PacienteDAO();
-
-    $retorno=$PacienteDAO->pesquisarPaciente($paciente);
-
-    require_once(__DIR__ . '../../index.php?page=resultadoPaciente');
+#PESQUISAR PACIENTE 
+if(isset($_POST['pesquisar']))
+{
+    $nome = $_POST['nome'];
+    $pacientesDAO = new PacienteDAO();
+    $pacientes = $pacientesDAO->listarPaciente($nome);
+    include(__DIR__ . 'index.php?page=listarPaciente'); 
 }
 ?>
