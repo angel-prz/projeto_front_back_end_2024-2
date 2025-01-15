@@ -31,7 +31,7 @@ require_once('includes/logica/PacienteDAO.php');
             <section>
                 <form action="includes/logica/logica_usuario.php" method="post">
                     <ul id="ul_listaPaciente" class="flex-container">
-                        <li><img id="imagem_perfil" class="flex-item imagem_perfil" src="imagens/<?php echo $paciente['imagem'];?>" /></li>
+                        <li><img id="imagem_perfil" class="flex-item imagem_perfil" src="imagens/<?php echo $paciente['imagem'];?>" alt="Foto de perfil"/></li>
                         <li id="il_listaPaciente">Nome: <?php echo $paciente['nome']; ?> </li>
                         
                         <li class="flex-item">
