@@ -14,7 +14,7 @@ O **Prontuário+** é um sistema digital desenvolvido para profissionais da áre
 - Outros profissionais da área da saúde
 
 ## ** Check-list Front-End
-[a relative link](Checklist.md)
+[Checklist](Checklist.md)
 
 ## **Funcionalidades**
 - [x] **Registro de Pacientes**  
