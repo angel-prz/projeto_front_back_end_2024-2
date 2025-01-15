@@ -4,7 +4,7 @@
     require_once('PacienteDAO.php');
     define('BLA', '/var/www/projeto/projeto_front_back_end_2024-2/projeto/');
 
-#CADASTRO USUARIO
+#CADASTRO paciente
     if(isset($_POST['cadastrar']))
     {
         $nome = $_POST['nome'];
@@ -12,7 +12,7 @@
         $cpf = $_POST['cpf'];
         $senha = $_POST['senha'];
         $dataNascimento = $_POST['dataNascimento'];
-        $tipoUsuario = $_POST['tipoUsuario'];
+        $tipopaciente = $_POST['tipopaciente'];
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name']; 
@@ -23,7 +23,7 @@
             echo "Upload concluído com sucesso: $uploadedFile<br>";
             
                 //usando construtor
-                $paciente=new Paciente($nome, $email, $cpf, $senha, new DateTime($dataNascimento), $tipoUsuario, $nome_arquivo, $historico,);
+                $paciente=new Paciente($nome, $email, $cpf, $senha, new DateTime($dataNascimento), $tipopaciente, $nome_arquivo, $historico,);
 
                 //pegar data hora atual
                 $dataCadastro = new DateTime('now');
@@ -49,5 +49,52 @@ if(isset($_POST['pesquisar']))
     $pacientesDAO = new PacienteDAO();
     $pacientes = $pacientesDAO->listarPaciente($nome);
     include(__DIR__ . 'index.php?page=listarPaciente'); 
+}
+
+#DELETAR PACIENTE
+if(isset($_POST['deletar'])){
+    $cpf = $_POST['deletar'];
+
+            $paciente=new Paciente();
+
+            $paciente->setCpf($cpf);
+
+            $PacienteDAO= new PacienteDAO();
+
+            $retorno=$PacienteDAO->deletarPaciente($paciente);
+   
+
+    header('Location:../../index.php');
+}
+
+
+
+#EDITAR PACIENTE
+if(isset($_POST['editar'])){
+    
+    $cpf = $_POST['cpf'];
+    $pacientesDAO = new PacienteDAO();
+    $pacientes = $pacientesDAO->listarPaciente($cpf);
+    include(__DIR__ . 'index.php?page=listarPaciente'); 
+}    
+
+#ALTERAR PESSOA
+if(isset($_POST['alterar'])){
+    
+    $paciente=new paciente();
+    $paciente->setNome($nome);
+    $paciente->setEmail($email);
+    $paciente->setCpf($cpf);
+    $paciente->setSenha($senha);
+    $paciente->setImagem($nome_arquivo);
+    //converter a string para DateTIme
+    $paciente->setDataNascimento(new DateTime($dataNascimento));
+    $paciente->setTipopaciente($tipopaciente);
+    $paciente->setDataCadastro($getDataCadastro);
+    $PacienteDAO= new PacienteDAO();
+
+    $retorno=$PacienteDAO->alterarPaciente($paciente);
+
+    include(__DIR__ . 'index.php?page=listarPaciente');
 }
 ?>

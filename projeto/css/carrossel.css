@@ -1,0 +1,90 @@
+@media (max-width: 768px) 
+{
+    .img_carrossel {
+        max-width: 95%;
+        /* Increase carousel width to 95% on mobile */
+    }
+
+    .botao_carrossel 
+    {
+        padding: 1.25em;
+        font-size: 1.5em;
+        /* Increase the size of navigation buttons */
+    }
+
+    /* Ensure the carousel images are not too small */
+    .img_container img 
+    {
+        object-fit: cover;
+        /* Ensures images fill the container appropriately */
+    }
+}
+
+@media only screen and (min-width: 768px) 
+{
+
+    /***********************
+            CARROSSEL DE IMAGENS 
+            ***********************/
+    .img_carrossel 
+    {
+        position: relative;
+        width: 80%;
+        max-width: 37.5em;
+        cursor: pointer;
+        /* Add cursor pointer to indicate clickable area */
+    }
+}
+
+.img_carrossel 
+{
+    overflow: hidden;
+    border-radius: 0.625em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Smooth transition for full-screen toggle */
+}
+
+/* div das imagens */
+.img_container 
+{
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* <img> */
+.img_container img 
+{
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.botao_carrossel
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.625em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.botao_carrossel:hover 
+{
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#botao_anterior 
+{
+    left: 0.625em;
+}
+
+#botao_proximo 
+{
+    right: 0.625em;
+}

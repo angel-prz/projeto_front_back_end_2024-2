@@ -23,6 +23,18 @@ function limparPesquisa()
     window.location.href = window.location.pathname; 
 }
 
+//mostrar links do menu hamburger
+function mostrarLinksHamburger() 
+{
+    let links = document.getElementById("sidebar");
+    if (links.style.display === "block")
+        links.style.display = "none";
+    else 
+        links.style.display = "block";
+  }
+
+
+
 //esperar pela pagina inteiro carregar
 document.addEventListener("DOMContentLoaded", function () 
 {
@@ -121,21 +133,40 @@ BOTÂO COM DROPDOWN MENU DO CABEÇALHJO
         //se o click for fora do botão e do menu, fecha o menu
         if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.remove('show');
-    }
-    // fecha o menu se o botao perder focus (tirar o mouse)
-    dropdownButton.addEventListener('focusout', function () 
-    {
-        dropdownMenu.classList.remove('show');
+        }
+        // fecha o menu se o botao perder focus (tirar o mouse)
+        dropdownButton.addEventListener('focusout', function () 
+        {
+            dropdownMenu.classList.remove('show');
+        });
+
+        // função evita que o menu feche se o usuário clicar nele
+        dropdownMenu.addEventListener('click', function (event) 
+        {
+            event.stopPropagation();    
+        });
+
     });
 
-    // função evita que o menu feche se o usuário clicar nele
-    dropdownMenu.addEventListener('click', function (event) 
-    {
-        event.stopPropagation();    
+    document.getElementById('cpf').addEventListener('input', function() {
+        let cpf = this.value;
+    
+        // remover character não numero
+        cpf = cpf.replace(/\D/g, '');
+    
+        // atualizar o camp com novo valor
+        this.value = cpf;
+    
+        // verificar se são apenas 11 digitos
+        if (cpf.length > 11) {
+            alert('CPF deve ter 11 dígitos.');
+            document.getElementById('cpf').value = "";
+        }
     });
+    //botao de exames
+});
 
-});
-});
+//evento para verificar cpf
 
  //criar campos de TIPO E NUMERO DO CONSELHO
         //const tipoConselho = document.createElement("INPUT");

@@ -47,7 +47,7 @@ class PacienteDAO extends UsuarioDAO
         if($nome)
         {
             try{
-                $query = $this->conexao->prepare("SELECT * FROM usuario WHERE UPPER(nome) like :nome AND tipo_usuario = 'paciente'");
+                $query = $this->conexao->prepare("SELECT * FROM usuario WHERE UPPER(nome) like :nome OR cpf like :nome AND tipo_usuario = 'paciente'");
                 $query->execute(['nome' => '%' . strtoupper($nome) . '%']);
                 $pacientes = $query->fetchAll();
                 return $pacientes;
@@ -70,8 +70,16 @@ class PacienteDAO extends UsuarioDAO
     function alterarpaciente($paciente)
     {
         try {
-            $query = $this->conexao->prepare("update paciente set nome= :nome, email = :email, cpf= :cpf, senha= :senha where codpaciente = :codpaciente");
-            $resultado = $query->execute(['nome' => $paciente->getnome(), 'email' => $paciente->getemail(), 'cpf' => $paciente->getcpf(), 'senha' => $paciente->getsenha(), 'codpaciente' => $paciente->getcodpaciente()]);
+            $query = $this->conexao->prepare("UPDATE usuario SET nome= :nome, email = :email, cpf= :cpf, senha= :senha, 
+            dataNascimento = :dataNascimento, tipoUsuario = :tipoUsuario, imagem = :imagem, dataCadastro = :dataCadastro WHERE cpf = :cpf");
+            $resultado = $query->execute(['cpf' => $paciente->getCpf(),
+                'nome' => $paciente->getNome(),
+                'email' => $paciente->getEmail(),
+                'senha' => $paciente->getsenha(),
+                'dataNascimento' => $paciente->getDataNascimento()->format('Y-m-d'),
+                'tipo_usuario' => $paciente->getTipoUsuario(),
+                'imagem' => $paciente->getImagem(),
+                'dataCadastro' => $paciente->getDataCadastro()->format('Y-m-d')]);
             return $resultado;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
@@ -79,11 +87,11 @@ class PacienteDAO extends UsuarioDAO
     }
 
 
-    function deletarpaciente($paciente)
+    function deletarPaciente($paciente)
     {
         try {
-            $query = $this->conexao->prepare("delete from paciente where codpaciente = :codpaciente");
-            $resultado = $query->execute(['codpaciente' => $paciente->getcodpaciente()]);
+            $query = $this->conexao->prepare("DELETE FROM usuario where cpf = :cpf");
+            $resultado = $query->execute(['cpf' => $paciente->getCpf()]);
             return $resultado;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();

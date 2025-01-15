@@ -1,0 +1,39 @@
+/* O Modal (fundo) */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1; /* Fica acima de outros elementos */
+    padding-top: 100px; /* Localização da caixa */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Ativa o scroll, se necessário */
+    background-color: rgb(0,0,0); /* Cor de fundo padrão (fallback) */
+    background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+  }
+  
+  /* Conteúdo do Modal */
+  .form_modal {
+    background-color: #fefefe; /* Cor de fundo do conteúdo */
+    margin: auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #888; /* Borda ao redor do conteúdo */
+    width: 80%; /* Largura do modal */
+  }
+  
+  /* Botão de Fechar */
+  .close {
+    color: #aaaaaa; /* Cor do botão */
+    float: right; /* Alinha à direita */
+    font-size: 28px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000; /* Cor ao passar o mouse ou focar */
+    text-decoration: none; /* Remove sublinhado */
+    cursor: pointer; /* Troca o cursor para pointer */
+  }
+  

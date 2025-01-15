@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="css/login.css">
 <title>Login</title>
 </head>
 <body>

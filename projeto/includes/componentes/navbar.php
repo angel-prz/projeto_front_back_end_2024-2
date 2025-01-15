@@ -1,28 +1,14 @@
-<nav id='menu' class="">
-        <ul id='listaMenu'>
-                <li>
-                        <a href="./index.php">Página Inicial</a>
-                </li>
-                <li>
-                        <a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a>
-                </li>
-                <li>
-                        <a href="index.php?page=resultadoPaciente">Pesquisar Pessoa</a>
-                 </li>
-                <li>
-                        <a href="index.php?page=marcarConsulta">Marcar Consulta</a>
-                </li>
-                <li>
-                        <a href="index.php?page=listarPaciente">Listar Paciente</a>
-                </li>
-                <li>
-                        <a href=""></a>
-                </li>
-                <li>
-                        <a href=""></a>
-                </li>       
-                <li>
-                        <a href=""></a>
-                </li>                              
-        </ul>
+<link rel="stylesheet" href="css/navbar.css">
+<nav id='menu' class="menu">
+        <p class="pMenu">Menu</p>
+        <div class="sidebar" id="sidebar">
+                <a href="./index.php">Página Inicial</a>
+                <a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a>
+                <a href="index.php?page=listarPaciente">Pacientes</a>
+                <a href="index.php?page=marcarConsulta">Consultas</a>
+                
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="mostrarLinksHamburger()">
+                <i class="fa fa-bars"></i>
+        </a>
 </nav>

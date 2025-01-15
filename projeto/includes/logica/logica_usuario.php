@@ -108,20 +108,17 @@
 #ALTERAR PESSOA
     if(isset($_POST['alterar'])){
     
-            $codpessoa = $_POST['codpessoa'];
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $cpf = $_POST['cpf'];
-            $senha = $_POST['senha'];    
-
-            $pessoa=new Pessoa();
-            $pessoa->setnome($nome);
-            $pessoa->setemail($email);
-            $pessoa->setcpf($cpf);
-            $pessoa->setsenha($senha);
-            $pessoa->setcodpessoa($codpessoa);
-
-            $PessoaDAO= new PessoaDAO();
+        $usuario=new Usuario();
+        $usuario->setNome($nome);
+        $usuario->setEmail($email);
+        $usuario->setCpf($cpf);
+        $usuario->setSenha($senha);
+        $usuario->setImagem($nome_arquivo);
+        //converter a string para DateTIme
+        $usuario->setDataNascimento(new DateTime($dataNascimento));
+        $usuario->setTipoUsuario($tipoUsuario);
+        $usuario->setDataCadastro($getDataCadastro);
+        $UsuarioDAO= new UsuarioDAO();
 
 
 
@@ -131,15 +128,15 @@
     }
 #DELETAR PESSOA
     if(isset($_POST['deletar'])){
-        $codpessoa = $_POST['deletar'];
+        $cpf = $_POST['deletar'];
 
-                $pessoa=new Pessoa();
+                $usuario=new Usuario();
 
-                $pessoa->setcodpessoa($codpessoa);
+                $usuario->setCpf($cpf);
 
-                $PessoaDAO= new PessoaDAO();
+                $UsuarioDAO= new UsuarioDAO();
 
-                $retorno=$PessoaDAO->deletarPessoa($pessoa);
+                $retorno=$UsuarioDAO->deletarUsuario($usuario);
        
 
         header('Location:../../index.php');

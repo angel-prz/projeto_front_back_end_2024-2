@@ -1,0 +1,70 @@
+/* Estilos mobil first */
+body
+{
+    box-sizing: border-box;
+}
+main {
+    background-color: #fff;
+    padding: 1.25em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    max-width: 768px;
+    text-align: center;
+    width: 768px;
+}
+
+h1 {
+    margin-bottom: 1.25em;
+    font-size: 1.5em; 
+    color: #333;
+}
+
+form 
+{
+    width: auto;
+    height: auto;
+}
+form p {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.9375em;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Ocupa todo o espaço disponível */
+    padding: 0.625em;
+    border: 0.0625em solid #ddd;
+    border-radius: 0.25em;
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+button {
+    width: 100%; /* Botão responsivo */
+    padding: 0.625em;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 0.25em;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajustes para dispositivos maiores */
+@media (min-width: 768px) {
+    main {
+        align-items: center;
+        width: 25em; /* Define uma largura fixa para telas maiores */
+    }
+    
+}

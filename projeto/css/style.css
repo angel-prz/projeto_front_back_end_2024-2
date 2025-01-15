@@ -5,9 +5,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
 body 
 {
     font-family: Arial, sans-serif;
+    
 }
 
 /* Layout grid (Mobile-First(BLA)) */
@@ -46,7 +53,14 @@ Layout para Telas Maiores
     }
 
     main {
-        height: 100vh; /* Ajuste da altura máxima ???????????????*/ 
+        height: 80%;
+        max-width: 100%; /* Ajuste da altura máxima ???????????????*/ 
+    }
+
+    body{
+    height: 100%;
+    max-width: 100%;
+    align-items: center;
     }
 }
 
@@ -184,7 +198,7 @@ Navbar
 nav 
 {
     grid-area: navbar;
-    background-color: #f4f4f4;
+    background-color: #ddd;
     padding: 0.9375em;
     border-radius: 0.5em;
     overflow-x: auto;
@@ -220,7 +234,8 @@ Estilo dos usuarios
 ************************************/
 /* Estilo do formulário */
 .lista-paciente {
-    margin: 10px 0;
+    margin: 1em 0;
+    margin-top: 1em;
 }
 
 /* Flex container */
@@ -269,12 +284,12 @@ Estilo dos usuarios
     transition: background-color 0.3s ease;
 }
 
-.flex-container button:nth-child(1) {
+.flex-container #ficha {
     background-color: #007bff; /* Azul para Ficha */
     color: white;
 }
 
-.flex-container button:nth-child(2) {
+.flex-container #deletar {
     background-color: #dc3545; /* Vermelho para Deletar */
     color: white;
 }
@@ -284,20 +299,6 @@ Estilo dos usuarios
     filter: brightness(0.9);
 }
 
-
-/*botoes*/
-button[name="ficha"]
-{
-    flex-grow: 1;
-    background-color: #007bff;
-    color: white
-}
-button[name="deletar"]
-{
-    flex-grow: 1;
-    background-color: red;
-    color: white
-}
 /************************************
 Formulário cadastro usuário
 ************************************/

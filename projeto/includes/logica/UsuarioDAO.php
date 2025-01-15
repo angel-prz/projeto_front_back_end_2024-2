@@ -53,11 +53,11 @@ class UsuarioDAO
     }
 
 
-    function deletarPessoa($pessoa)
+    function deletarUsuario($usuario)
     {
         try {
-            $query = $this->conexao->prepare("delete from pessoa where codpessoa = :codpessoa");
-            $resultado = $query->execute(['codpessoa' => $pessoa->getcodpessoa()]);
+            $query = $this->conexao->prepare("DELETE FROM usuario WHERE cpf = :cpf");
+            $resultado = $query->execute(['cpf' => $usuario->getCpf()]);
             return $resultado;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
