@@ -17,31 +17,31 @@ O **Prontuário+** é um sistema digital desenvolvido para profissionais da áre
 - [x] **Registro de Pacientes**  
    Cadastro de informações básicas e médicas de pacientes.
    
-2. **Registro de Profissionais da Saúde**  
+- [] **Registro de Profissionais da Saúde**  
    Cadastro de médicos, enfermeiros e outros profissionais.
 
-3. **Gerenciamento de Registros**  
+- [] **Gerenciamento de Registros**  
    Acesso, edição e visualização de informações médicas mediante autenticação.
 
-4. **Registro de Anamnese e Exame Clínico**  
+- [] **Registro de Anamnese e Exame Clínico**  
    Inclusão de informações sobre histórico médico, sintomas e diagnósticos iniciais.
 
-5. **Agendamento de Consultas**  
+- [] **Agendamento de Consultas**  
    Calendário detalhado com informações de médico, paciente, horário e tipo de consulta.
 
-6. **Prescrição de Medicamentos e Tratamentos**  
+- [] **Prescrição de Medicamentos e Tratamentos**  
    Registro e emissão de receitas médicas com detalhes de dosagens e posologias.
 
-7. **Emissão de Atestados e Documentos Clínicos**  
+- [] **Emissão de Atestados e Documentos Clínicos**  
    Criação de atestados, laudos e outros documentos clínicos.
 
-8. **Solicitação de Exames**  
+- [] **Solicitação de Exames**  
    Requisição de exames laboratoriais, de imagem e outros diagnósticos complementares.
 
-9. **Backup Digital**  
+- [] **Backup Digital**  
    Armazenamento seguro e recuperação de dados.
 
-10. **Compartilhamento de Informações**  
+- [] **Compartilhamento de Informações**  
     Troca de informações com outros profissionais e serviços de saúde.
 
 ## **Tecnologias Utilizadas**
