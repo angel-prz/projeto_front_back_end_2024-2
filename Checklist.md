@@ -1,7 +1,7 @@
 ## **Checklist de Requisitos Front-End**
 
 ### **5.1 Estrutura Semântica e Acessibilidade**
-- [x] [Uso de elementos semânticos do HTML5 (<header>, <nav>, <main>, etc.).](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/1ea925bcea77b459cefd366e3eac5a4610ea982d/projeto/view/listarPaciente.php#L6)
+- [x] [Uso de elementos semânticos do HTML5 (`<header>`, `<nav>`, `<main>`, etc.").](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/1ea925bcea77b459cefd366e3eac5a4610ea982d/projeto/view/listarPaciente.php#L6)
 - [x] [Texto alternativo para imagens.](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/970ed28355892f3cbf76c4eeeabc376abccca2fe/projeto/view/listarPaciente.php#L34)  
 - [ ] Navegação funcional via teclado.  
 - [ ] Contraste adequado entre texto e fundo.  
