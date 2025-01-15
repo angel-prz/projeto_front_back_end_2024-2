@@ -12,7 +12,7 @@
 
 ### **5.2 Responsividade**
 - [x] Uso de Flexbox e/ou CSS Grid em pelo menos 2 páginas.  
-- [X] Aplicação de media queries para adaptar o design a diferentes dispositivos.  
+- [X] [Aplicação de media queries para adaptar o design a diferentes dispositivos.](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/75ed47adb62babe7d7825213dae60ee662d47fb0/projeto/css/style.css#L38)  
 - [X] Abordagem mobile-first e uso de unidades relativas (%, em, rem).  
 
 ---
