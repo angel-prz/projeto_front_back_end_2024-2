@@ -11,7 +11,7 @@
 ---
 
 ### **5.2 Responsividade**
-- [x] Uso de Flexbox e/ou CSS Grid em pelo menos 2 páginas. [Flexbox]() [Grid](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/351dc32dc257c21657d31146c0561bccb3649324/projeto/css/style.css#L21)
+- [x] Uso de Flexbox e/ou CSS Grid em pelo menos 2 páginas. [Flexbox](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/b3c226b1cbf0c2a8ba0702272061abe6d590e327/projeto/css/style.css#L242) [Grid](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/351dc32dc257c21657d31146c0561bccb3649324/projeto/css/style.css#L21)
 - [X] [Aplicação de media queries para adaptar o design a diferentes dispositivos.](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/75ed47adb62babe7d7825213dae60ee662d47fb0/projeto/css/style.css#L38)  
 - [X] [Abordagem mobile-first e uso de unidades relativas (%, em, rem).](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/351dc32dc257c21657d31146c0561bccb3649324/projeto/css/style.css#L1) 
 
