@@ -37,7 +37,7 @@
 ---
 
 ### **5.6 Uso de API**
-- [ ] Integração com pelo menos 2 APIs do HTML5 (e.g., Geolocation, Web Storage, Drag and Drop, Fetch).  
+- [ ] Integração com pelo menos 2 APIs do HTML5 (e.g., [Geolocation](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/view/mostrarConsultas.php#L1), Web Storage, Drag and Drop, Fetch).  
 - [ ] Utilização opcional de APIs externas para enriquecer funcionalidades.  
 
 ---
@@ -55,9 +55,9 @@
 ---
 
 ### **5.9 Elementos de Interface e Navegação**
-- [ ] Carrossel: Exibição dinâmica de imagens ou conteúdo.  
+- [ ] [Carrossel: Exibição dinâmica de imagens ou conteúdo.](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/css/carrossel.css#L1)  
 - [ ] Breadcrumbs: Indicação hierárquica de navegação.  
-- [x] Menus suspensos ou hambúrguer: Navegação funcional e adaptável.  
-- [x] Modais: Janelas pop-up para mensagens ou formulários.  
+- [x] Menus suspensos ou hambúrguer: Navegação funcional e adaptável. (Menu hamburger) [CSS](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/css/navbar.css#L1) , [Javascript](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/scripts/carrossel.js#L1), [HTML](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/view/mostrarExames.php#L1)
+- [x] Modais: Janelas pop-up para mensagens ou formulários. (Formulário em janela modal) [CSS](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/css/modal.css#L1), [Javascript](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/scripts/modal.js#L1) [HTML](https://github.com/angel-prz/projeto_front_back_end_2024-2/blob/66012c3f58ba64889dda24ceedfe666471d302fe/projeto/view/listarPaciente.php#L73)
 - [ ] Tabs (abas): Organização de conteúdos por categorias.  
 - [ ] Accordion: Expansão e colapso de informações.  
