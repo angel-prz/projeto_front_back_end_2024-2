@@ -1,9 +1,10 @@
 <?php
 require_once('includes/logica/PacienteDAO.php'); 
 ?>
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/modal.css">
-<main>
+<script src="scripts/javascript.js"></script>
+<div class="page_usuarios">
+<title>Listar usúarios</title>
 <h3> Listagem de Usuários </h3>
     <section>
     <form action="" method="post">
@@ -54,7 +55,7 @@ require_once('includes/logica/PacienteDAO.php');
             //<li id="il_listaPaciente">Email <?php echo $paciente['email'];
         }  
     ?>
-    
+</div>
 <?php
     //se for null só lista os usuarios
         $nomePesquisa = isset($_POST['nome_pesquisa']) ? $_POST['nome_pesquisa'] : null;

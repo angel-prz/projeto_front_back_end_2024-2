@@ -115,39 +115,6 @@ document.addEventListener("DOMContentLoaded", function ()
         });
     }
 
-/**************************************************************
-BOTÂO COM DROPDOWN MENU DO CABEÇALHJO
-**************************************************************/
-    const dropdownButton = document.getElementById('dropdownButton');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    dropdownButton.addEventListener('click', function (event) 
-    {
-        dropdownMenu.classList.toggle('show');
-        event.stopPropagation(); //evita que o evento de click no botão seja propagado para o document
-    });
-
-    // função pra fechar o menu se o usuário clicar fora
-    document.addEventListener('click', function (event) 
-    {
-        //se o click for fora do botão e do menu, fecha o menu
-        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('show');
-        }
-        // fecha o menu se o botao perder focus (tirar o mouse)
-        dropdownButton.addEventListener('focusout', function () 
-        {
-            dropdownMenu.classList.remove('show');
-        });
-
-        // função evita que o menu feche se o usuário clicar nele
-        dropdownMenu.addEventListener('click', function (event) 
-        {
-            event.stopPropagation();    
-        });
-
-    });
-
     document.getElementById('cpf').addEventListener('input', function() {
         let cpf = this.value;
     
@@ -172,3 +139,26 @@ BOTÂO COM DROPDOWN MENU DO CABEÇALHJO
         //const tipoConselho = document.createElement("INPUT");
         //tipoConselho.setAttribute("type", "text");
         //tipoConselho.setAttribute("readonly", "");
+
+/**************************************************************
+BOTÂO COM DROPDOWN MENU DO CABEÇALHJO
+**************************************************************/
+
+function mostrarDropdown() 
+{
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) 
+    {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) 
+        {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show'))
+                openDropdown.classList.remove('show');
+        }
+    }
+  } 

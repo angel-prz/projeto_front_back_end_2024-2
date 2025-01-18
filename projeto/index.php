@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php
-include_once('includes/componentes/cabecalho.php');
-include_once('includes/componentes/header.php');
-include_once('includes/logica/UsuarioDAO.php');
-?>
-<title>Prontuario</title>
-</head>  
+    session_start();
+    if(!$_SESSION['logado'])
+    {
+	    header('location:login.php');
+    }
+    include_once('includes/componentes/cabecalho.php');
+    include_once('includes/logica/UsuarioDAO.php');
+?>  
 <body>
-<script src="https://kit.fontawesome.com/5a35988550.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/style.css">
+
 <div class="container">
+    <?php 
+        include_once('includes/componentes/header.php');
+        include('includes/componentes/navbar.php'); 
         
-        <?php
-        // https://kit.fontawesome.com/5a35988550.js fonte dos icones
-        // Inclui a barra de navegação
-        include('includes/componentes/navbar.php');
-
-        // Inclui a barra lateral
-        //include('includes/componentes/aside.php');
-
+    ?>
+     
+    <main> 
+    <?php
         // Define o arquivo a ser incluído no main dependendo da URL ou de uma lógica
         $page = isset($_GET['page']) ? $_GET['page'] : 'listarPaciente'; // Default para "listar"
 
@@ -46,7 +43,7 @@ include_once('includes/logica/UsuarioDAO.php');
                 break;
         }
     ?>
-    
+    </main>
 </div>
 <?php require('includes/componentes/footer.php');?>
 </body>

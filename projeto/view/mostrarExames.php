@@ -1,7 +1,7 @@
 <script src="scripts/carrossel.js"></script>
 <link rel="stylesheet" href="css/carrossel.css">
-
-<main>
+<script src="scripts/javascript.js"></script>
+<div class="page_exames" id=""> 
     <h3> Exames </h3>
     <div class="img_carrossel">
         <div class="img_container">
