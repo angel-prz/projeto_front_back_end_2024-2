@@ -17,7 +17,7 @@ O **Prontuário+** é um sistema digital desenvolvido para profissionais da áre
 - [x] **Registro de Pacientes**  
    Cadastro de informações básicas e médicas de pacientes.
    
-- [ ] **Registro de Profissionais da Saúde**  
+- [x] **Registro de Profissionais da Saúde**  
    Cadastro de médicos, enfermeiros e outros profissionais.
 
 - [ ] **Gerenciamento de Registros**  
