@@ -115,21 +115,33 @@ document.addEventListener("DOMContentLoaded", function ()
         });
     }
 
-    document.getElementById('cpf').addEventListener('input', function() {
-        let cpf = this.value;
-    
-        // remover character não numero
-        cpf = cpf.replace(/\D/g, '');
-    
-        // atualizar o camp com novo valor
-        this.value = cpf;
-    
-        // verificar se são apenas 11 digitos
-        if (cpf.length > 11) {
-            alert('CPF deve ter 11 dígitos.');
-            document.getElementById('cpf').value = "";
+    document.querySelectorAll('.campoCPF').forEach(element => element.addEventListener('input', function() {
+        element.addEventListener('input', function() {
+            let cpf = this.value;
+        
+            // remover character não numero
+            cpf = cpf.replace(/\D/g, '');
+        
+            // atualizar o camp com novo valor
+            this.value = cpf;
+        
+            let messageElement = this.nextElementSibling;
+        if (!messageElement || !messageElement.classList.contains('error-message')) {
+            messageElement = document.createElement('span');
+            messageElement.classList.add('error-message');
+            messageElement.style.color = 'red';
+            messageElement.style.fontSize = '0.9em';
+            this.parentNode.insertBefore(messageElement, this.nextSibling);
         }
-    });
+
+        // Show or clear the error message
+        if (cpf.length > 11) {
+            messageElement.textContent = 'CPF deve ter no máximo 11 dígitos.';
+        } else {
+            messageElement.textContent = ''; // Clear the message when valid
+        }
+        });
+    }));
     //botao de exames
 });
 
@@ -146,19 +158,19 @@ BOTÂO COM DROPDOWN MENU DO CABEÇALHJO
 
 function mostrarDropdown() 
 {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("Dropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = (event) => {
     if (!event.target.matches('.dropbtn')) 
     {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) 
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        let i;
+        for (i = 0; i < dropdowns.length; i++) 
         {
-            var openDropdown = dropdowns[i];
+            let openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show'))
-                openDropdown.classList.remove('show');
+                    openDropdown.classList.remove('show');
         }
     }
   } 

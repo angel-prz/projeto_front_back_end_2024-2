@@ -3,13 +3,13 @@ class Usuario
 {
     //private static int $lastId = 0
     //protected int $idUsuario;
-    protected string $cpf;
-    protected string $nome;
-    protected string $email;
-    protected string $senha;
+    protected  $cpf;
+    protected  $nome;
+    protected  $email;
+    protected  $senha;
     protected DateTime $dataNascimento;
-    protected string $tipoUsuario;
-    protected string $imagem;
+    protected  $tipoUsuario;
+    protected  $imagem;
     protected DateTime $dataCadastro;
     
    
@@ -29,24 +29,24 @@ class Usuario
     }
     */
     //setters
-    function setCpf(string $cpf): void {$this->cpf = $cpf;}
-    function setNome(string $nome): void {$this->nome = $nome;}
-    function setEmail(string $email): void {$this->email = $email;}
-    function setSenha(string $senha): void {$this->senha = $senha;}
+    function setCpf($cpf): void {$this->cpf = $cpf;}
+    function setNome( $nome): void {$this->nome = $nome;}
+    function setEmail( $email): void {$this->email = $email;}
+    function setSenha($senha): void {$this->senha = $senha;}
     function setDataNascimento(DateTime $dataNascimento): void {$this->dataNascimento = $dataNascimento;}
-    function setTipoUsuario(string $tipoUsuario) : void {$this->tipoUsuario = $tipoUsuario;}
-    function setImagem(string $imagem): void {$this->imagem = $imagem;}
+    function setTipoUsuario($tipoUsuario) : void {$this->tipoUsuario = $tipoUsuario;}
+    function setImagem($imagem): void {$this->imagem = $imagem;}
     function setDataCadastro(DateTime $dataCadastro): void {$this->dataCadastro = $dataCadastro;}
 
 
     //getters
-    public function getCpf(): string {return $this->cpf;}
-    public function getNome(): string {return $this->nome;}
-    public function getEmail(): string {return $this->email;}
-    public function getSenha(): string {return $this->senha;}
+    public function getCpf() {return $this->cpf;}
+    public function getNome() {return $this->nome;}
+    public function getEmail() {return $this->email;}
+    public function getSenha() {return $this->senha;}
     public function getDataNascimento():DateTime {return $this->dataNascimento;}
-    public function getTipoUsuario(): string {return $this->tipoUsuario;}
-    public function getImagem(): string {return $this->imagem;}
+    public function getTipoUsuario(){return $this->tipoUsuario;}
+    public function getImagem(){return $this->imagem;}
     public function getDataCadastro():DateTime {return $this->dataCadastro;}
    
     //metodos em usuarioDAO ?

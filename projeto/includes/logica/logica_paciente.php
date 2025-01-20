@@ -89,7 +89,6 @@ if(isset($_POST['alterar'])){
     $paciente->setImagem($nome_arquivo);
     //converter a string para DateTIme
     $paciente->setDataNascimento(new DateTime($dataNascimento));
-    $paciente->setTipopaciente($tipopaciente);
     $paciente->setDataCadastro($getDataCadastro);
     $PacienteDAO= new PacienteDAO();
 

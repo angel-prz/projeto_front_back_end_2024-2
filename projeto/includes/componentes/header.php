@@ -9,11 +9,10 @@
 
         <!-- Navigation Icons -->
          <div class="nav-icons">
-            
             <div class="dropdown">          
                 <button onclick="mostrarDropdown()" class="dropbtn"><i class="fas fa-user-circle">    
                 </i></button>
-                <div id="myDropdown" class="dropdown-content">
+                <div id="Dropdown" class="dropdown-content">
                     <a href="#profile">Meu Perfil</a>
                     <a href="#settings">Configurações</a>
                     <form action="includes/logica/logica_usuario.php" method="post">

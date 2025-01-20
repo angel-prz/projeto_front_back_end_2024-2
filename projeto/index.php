@@ -11,9 +11,8 @@
 
 <div class="container">
     <?php 
-        include_once('includes/componentes/header.php');
+        include_once('includes/componentes/header.php'); 
         include('includes/componentes/navbar.php'); 
-        
     ?>
      
     <main> 

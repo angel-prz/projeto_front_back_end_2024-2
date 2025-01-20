@@ -113,7 +113,6 @@ header
   
 .dropdown 
 {
-    float: right;
     position: relative;
     display: inline-block;
 }
@@ -319,6 +318,14 @@ footer
 Estilo dos usuarios
 ************************************/
 /* Estilo do formulário */
+@media only screen and (max-width: 768px)
+{
+    .flex-container
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
 .lista-paciente {
     margin: 1em 0;
     margin-top: 1em;
@@ -326,6 +333,7 @@ Estilo dos usuarios
 
 /* Flex container */
 .flex-container {
+    flex-direction: row;
     display: flex;
     align-items: center;
     gap: 0.8em;
@@ -398,3 +406,4 @@ Formulário cadastro usuário
 {
     display: none;
 }
+
