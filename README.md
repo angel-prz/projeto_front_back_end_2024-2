@@ -53,7 +53,7 @@ O **Prontuário+** é um sistema digital desenvolvido para profissionais da áre
   Para a interface do usuário.
 
 ### **Backend**
-- **PHP 8.2.26** ou **Java**  
+- **PHP 8.2.26** 
   Para a lógica de negócios e comunicação com o banco de dados.
 
 ### **Banco de Dados**
