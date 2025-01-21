@@ -8,7 +8,9 @@
     include_once('includes/logica/UsuarioDAO.php');
 ?>  
 <body>
-
+<form id="dateForm" method="POST" action="process.php">
+    <input type="hidden" id="dateField" name="date" />
+</form>
 <div class="container">
     <?php 
         include_once('includes/componentes/header.php'); 
@@ -38,8 +40,8 @@
                 include('view/mostrarExames.php');
                 break;
             default:
-                include('view/listarPaciente.php'); // Redireciona para "listar" por padrão
-                break;
+                //include('view/listarPaciente.php'); // Redireciona para "listar" por padrão
+                //break;
         }
     ?>
     </main>

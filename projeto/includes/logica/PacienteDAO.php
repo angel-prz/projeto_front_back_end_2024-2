@@ -71,13 +71,13 @@ class PacienteDAO extends UsuarioDAO
     {
         try {
             $query = $this->conexao->prepare("UPDATE usuario SET nome= :nome, email = :email, cpf= :cpf, senha= :senha, 
-            dataNascimento = :dataNascimento, tipoUsuario = :tipoUsuario, imagem = :imagem, dataCadastro = :dataCadastro WHERE cpf = :cpf");
+            dataNascimento = :dataNascimento, tipo_usuario = :tipoUsuario, imagem = :imagem, dataCadastro = :dataCadastro WHERE cpf = :cpf");
             $resultado = $query->execute(['cpf' => $paciente->getCpf(),
                 'nome' => $paciente->getNome(),
                 'email' => $paciente->getEmail(),
                 'senha' => $paciente->getsenha(),
                 'dataNascimento' => $paciente->getDataNascimento()->format('Y-m-d'),
-                'tipo_usuario' => $paciente->getTipoUsuario(),
+                'tipoUsuario' => $paciente->getTipoUsuario(),
                 'imagem' => $paciente->getImagem(),
                 'dataCadastro' => $paciente->getDataCadastro()->format('Y-m-d')]);
             return $resultado;

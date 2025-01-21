@@ -7,6 +7,9 @@
             <span>Prontuario</span>
         </div>
 
+        <div>
+            <?php echo $_SESSION['dataAtual']; ?>
+        </div>
         <!-- Navigation Icons -->
          <div class="nav-icons">
             <div class="dropdown">          

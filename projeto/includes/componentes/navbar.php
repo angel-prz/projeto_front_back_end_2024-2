@@ -7,7 +7,7 @@
                 <a href="./index.php">Página Inicial</a>
                 <a href="index.php?page=cadastrarUsuario">Adicionar Usuario</a>
                 <a href="index.php?page=listarPaciente">Pacientes</a>
-                <a href="index.php?page=marcarConsulta">Consultas</a> 
+                <a href="index.php?page=mostrarConsulta">Consultas</a> 
         </div>
         <a href="javascript:void(0);" class="icon" onclick="mostrarLinksHamburger()">
                 <i class="fa fa-bars"></i>

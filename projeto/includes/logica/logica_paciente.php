@@ -78,22 +78,33 @@ if(isset($_POST['editar'])){
     include(__DIR__ . 'index.php?page=listarPaciente'); 
 }    
 
-#ALTERAR PESSOA
+#ALTERAR PACIENTE
 if(isset($_POST['alterar'])){
-    
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $senha = $_POST['senha'];
+    $dataNascimento = $_POST['dataNascimento'];
+    $tipoUsuario = $_POST['tipoUsuario'];
+    $nome_arquivo=$_FILES['imagem']['name'];  
+    $tamanho_arquivo=$_FILES['imagem']['size']; 
+    $arquivo_temporario=$_FILES['imagem']['tmp_name']; 
+
     $paciente=new paciente();
     $paciente->setNome($nome);
     $paciente->setEmail($email);
     $paciente->setCpf($cpf);
     $paciente->setSenha($senha);
     $paciente->setImagem($nome_arquivo);
+    $paciente->setTipoUsuario($tipoUsuario);
     //converter a string para DateTIme
     $paciente->setDataNascimento(new DateTime($dataNascimento));
-    $paciente->setDataCadastro($getDataCadastro);
+    $paciente->setDataCadastro(new DateTime());
     $PacienteDAO= new PacienteDAO();
 
     $retorno=$PacienteDAO->alterarPaciente($paciente);
-
-    include(__DIR__ . 'index.php?page=listarPaciente');
+    header('Location:../../index.php');
+    //include(__DIR__ . 'index.php?page=listarPaciente');
 }
 ?>

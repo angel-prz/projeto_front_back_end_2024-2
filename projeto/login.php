@@ -4,6 +4,7 @@
 <body>
 <?php require('includes/componentes/header.php') ?>
 <main>
+  
 <h1> Login </h1>
     <section>
       <form id="form_login" name="form_login" action="includes/logica/logica_usuario.php" method="post">

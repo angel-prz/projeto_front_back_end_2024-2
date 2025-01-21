@@ -84,14 +84,30 @@
     }
 
 #SAIR
-    if(isset($_POST['sair'])){
-            session_start();
-            session_destroy();
-            header('location:../../index.php');
-    }
+if(isset($_POST['sair']))
+{
+    session_start();
+    session_destroy();
+    header('location:../../index.php');
+}
 
+#DELETAR PESSOA
+if(isset($_POST['deletar']))
+{
+    $cpf = $_POST['deletar'];
+
+    $usuario=new Usuario();
+
+    $usuario->setCpf($cpf);
+
+    $UsuarioDAO= new UsuarioDAO();
+
+    $retorno=$UsuarioDAO->deletarUsuario($usuario);
+       
+    header('Location:../../index.php');
+}
 #EDITAR PESSOA
-    if(isset($_POST['editar'])){
+/*    if(isset($_POST['editar'])){
     
                 $codpessoa = $_POST['editar'];
 
@@ -104,9 +120,10 @@
                 $retorno=$PessoaDAO->buscarPessoa($pessoa);
 
                 require_once('../../alterarPessoa.php');
-    }    
-#ALTERAR PESSOA
-    if(isset($_POST['alterar'])){
+    }   
+                */ 
+#ALTERAR USUARIO
+/*   if(isset($_POST['alterar'])){
     
         $usuario=new Usuario();
         $usuario->setNome($nome);
@@ -120,45 +137,16 @@
         $usuario->setDataCadastro($getDataCadastro);
         $UsuarioDAO= new UsuarioDAO();
 
+        $retorno=$UsuarioDAO->alterarUsuario($usuario);
 
-
-            $retorno=$PessoaDAO->alterarPessoa($pessoa);
-
-            header('location:../../index.php');
+        header('location:../../index.php');
     }
-#DELETAR PESSOA
-    if(isset($_POST['deletar'])){
-        $cpf = $_POST['deletar'];
+        */
 
-                $usuario=new Usuario();
 
-                $usuario->setCpf($cpf);
 
-                $UsuarioDAO= new UsuarioDAO();
-
-                $retorno=$UsuarioDAO->deletarUsuario($usuario);
-       
-
-        header('Location:../../index.php');
-    }
-
-#PESQUISAR PESSOA
-    if(isset($_POST['pesquisar'])){
-
-                $pessoa=new Pessoa();
-
-                $nome = "%".strtoupper($_POST['nome'])."%";
-
-                $pessoa->setnome($nome);
-
-                $PessoaDAO= new PessoaDAO();
-
-                $retorno=$PessoaDAO->pesquisarPessoa($pessoa);
-
-                require_once('/view/mostrarPessoa.php');
-    }
 #ALTERAR PERFIL
-    if(isset($_POST['alterarPerfil'])){
+/*    if(isset($_POST['alterarPerfil'])){
  
             session_start();
 
@@ -182,5 +170,5 @@
             $_SESSION['nome'] = $nome;
             echo $_SESSION['nome'];
             header('location:../../alterarPerfil.php');
-    }
+    }*/
 ?>

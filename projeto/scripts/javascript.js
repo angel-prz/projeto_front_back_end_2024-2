@@ -126,13 +126,14 @@ document.addEventListener("DOMContentLoaded", function ()
             this.value = cpf;
         
             let messageElement = this.nextElementSibling;
-        if (!messageElement || !messageElement.classList.contains('error-message')) {
-            messageElement = document.createElement('span');
-            messageElement.classList.add('error-message');
-            messageElement.style.color = 'red';
-            messageElement.style.fontSize = '0.9em';
-            this.parentNode.insertBefore(messageElement, this.nextSibling);
-        }
+            if (!messageElement || !messageElement.classList.contains('error-message')) 
+            {
+                messageElement = document.createElement('span');
+                messageElement.classList.add('error-message');
+                messageElement.style.color = 'red';
+                messageElement.style.fontSize = '0.9em';
+                this.parentNode.insertBefore(messageElement, this.nextSibling);
+            }
 
         // Show or clear the error message
         if (cpf.length > 11) {
@@ -174,3 +175,13 @@ window.onclick = (event) => {
         }
     }
   } 
+
+  // Create the current date in ISO format
+const date = new Date();
+const formattedDate = date.toISOString(); // Example: "2025-01-20T12:34:56.789Z"
+
+  // Set the hidden input field's value
+document.getElementById('dateField').value = formattedDate;
+
+  // Automatically submit the form
+document.getElementById('dateForm').submit();

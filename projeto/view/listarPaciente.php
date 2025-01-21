@@ -74,7 +74,7 @@ require_once('includes/logica/PacienteDAO.php');
             <div id="modal_background" class="modal">
                 <div id="form_modal" class="form_modal">
                 <span class="close">&times;</span>
-                    <form action="includes/logica/logica_usuario.php" method="post" enctype="multipart/form-data" id="formCadastroUsuario">
+                    <form action="includes/logica/logica_paciente.php" method="post" enctype="multipart/form-data" id="formCadastroUsuario">
                         <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome" value="<?php echo $paciente['nome']?>"></p>
                         <p><label for="email">email: </label><input type="text" name="email" id="email" value="<?php echo $paciente['email']?>"></p>
                         <p><label for="cpf">CPF: </label><input type="text" name="cpf" id="cpf" class="campoCPF" maxlength="11" value="<?php echo $paciente['cpf']?>"></p>
@@ -84,6 +84,7 @@ require_once('includes/logica/PacienteDAO.php');
                             <option value="paciente">Paciente</option>
                             <option value="profissional_saude">Profissional de Saúde</option>
                             <option value="bolsista">Bolsista</option>
+                            </select>
                         <br>
                         <p><label for="imagem">Foto: </label> <input type="file" name="imagem" id="imagem" src="../../imagens/<?php echo $paciente['imagem'];?>"></p>
                         <p> <input type="submit" id='alterar' name='alterar' value="Alterar" onclick="return verificarCadastro()">       
@@ -92,7 +93,8 @@ require_once('includes/logica/PacienteDAO.php');
             </div>
             <?php
         }
-        ?>
+    
+?>
         <script src="scripts/modal.js"></script>
         <script>
         </script>
